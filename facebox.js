@@ -128,7 +128,8 @@
 
       $('#facebox').css({
         top:	getPageScroll()[1] + (getPageHeight() / 10),
-        left:	$(window).width() / 2 - 205 
+        left:	$(window).width() / 2 - 205,
+        width: 410
       }).show()
 
       $(document).bind('keydown.facebox', function(e) {
@@ -144,7 +145,7 @@
       $('#facebox .content').append(data)
       $('#facebox .loading').remove()
       $('#facebox .body').children().fadeIn('normal')
-      $('#facebox').css('left', $(window).width() / 2 - ($('#facebox table').width() / 2))
+      $('#facebox').css({left: $(window).width() / 2 - ($('#facebox table').width() / 2), width: 'auto'})
       $(document).trigger('reveal.facebox').trigger('afterReveal.facebox')
     },
 
