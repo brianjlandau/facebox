@@ -127,8 +127,8 @@
         append('<div class="loading"><img src="'+$.facebox.settings.loadingImage+'"/></div>');
 
       $('#facebox').css({
-        top:	getPageScroll()[1] + (getPageHeight() / 10),
-        left:	$(window).width() / 2 - 205
+        top:  getPageScroll()[1] + (getPageHeight() / 10),
+        left:  $(window).width() / 2 - 205
       }).show();
 
       $(document).bind('keydown.facebox', function(e) {
@@ -144,8 +144,12 @@
       $('#facebox .content').append(data);
       $('#facebox .loading').remove();
       $('#facebox .body').children().fadeIn('normal');
-      $('#facebox').css({left: $(window).width() / 2 - ($('#facebox table').width() / 2), width: 'auto'});
+      $.facebox.centralize();
       $(document).trigger('reveal.facebox').trigger('afterReveal.facebox');
+    },
+
+    centralize: function() {
+      $('#facebox').css({left: $(window).width() / 2 - ($('#facebox table').width() / 2), width: 'auto'});
     },
 
     close: function() {
@@ -215,7 +219,7 @@
     if (self.pageYOffset) {
       yScroll = self.pageYOffset;
       xScroll = self.pageXOffset;
-    } else if (document.documentElement && document.documentElement.scrollTop) {	 // Explorer 6 Strict
+    } else if (document.documentElement && document.documentElement.scrollTop) {   // Explorer 6 Strict
       yScroll = document.documentElement.scrollTop;
       xScroll = document.documentElement.scrollLeft;
     } else if (document.body) {// all other Explorers
@@ -228,7 +232,7 @@
   // Adapted from getPageSize() by quirksmode.com
   function getPageHeight() {
     var windowHeight;
-    if (self.innerHeight) {	// all except Explorer
+    if (self.innerHeight) {  // all except Explorer
       windowHeight = self.innerHeight;
     } else if (document.documentElement && document.documentElement.clientHeight) { // Explorer 6 Strict Mode
       windowHeight = document.documentElement.clientHeight;
