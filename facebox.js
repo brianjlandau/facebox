@@ -263,6 +263,7 @@
     if (href.match(/#/)) {
       var url    = window.location.href.split('#')[0];
       var target = href.replace(url,'');
+      if (target == '#') return;
       $.facebox.reveal($(target).html(), klass);
 
     // image
