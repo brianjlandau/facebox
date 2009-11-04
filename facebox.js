@@ -1,6 +1,8 @@
 /*
  * Facebox (for jQuery)
- * version: 1.2 (05/05/2008)
+ * version: 1.2 (05/05/2008) 
+ *          with mutiple class patch (11/04/2009 http://github.com/jondistad/facebox.git)
+ * 
  * @requires jQuery v1.2 or later
  *
  * Examples at http://famspam.com/facebox/
@@ -166,8 +168,8 @@
     function clickHandler() {
       $.facebox.loading(true)
 
-      // support for rel="facebox.inline_popup" syntax, to add a class
-      // also supports deprecated "facebox[.inline_popup]" syntax
+      // support for rel="facebox.inline_popup" syntax, to add one or more classes
+      // Eg. "facebox.foo.bar" or "facebox[.foo.bar]"
       var klass = this.rel.match(/facebox\[?\.([\w\.]+)\]?/)
       if (klass) klass = klass[1].replace(/\W/g, ' ')
 
